@@ -7,7 +7,7 @@ document.body.addEventListener("keydown", function (event) {
     }
 });
 
-submit.addEventListener('click', async event => {
+input.addEventListener('click', async event => {
     event.preventDefault();
     window.navigator.serviceWorker.register('./sw.js', {
         scope: __uv$config.prefix
