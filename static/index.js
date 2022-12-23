@@ -7,7 +7,7 @@ document.body.addEventListener("keydown", function (event) {
     }
 });
 
-input.addEventListener('click', async event => {
+form.addEventListener('submit', async event => {
     event.preventDefault();
     window.navigator.serviceWorker.register('./sw.js', {
         scope: __uv$config.prefix
@@ -35,7 +35,7 @@ input.addEventListener('click', async event => {
     });
 
 });
-form.addEventListener('submit', async event => {
+input.addEventListener('submit', async event => {
     event.preventDefault();
     window.navigator.serviceWorker.register('./sw.js', {
         scope: __uv$config.prefix
