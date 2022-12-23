@@ -1,14 +1,13 @@
 const form = document.querySelector('form');
 const input = document.querySelector('input');
-const subtn = document.querySelector('submit');
+const searchBTN = document.querySelector('submit');
 
-document.body.addEventListener("keydown", function (event) {
-    if (event.key === ",") {
-        window.location.replace("https://google.com");
-    }
-});
 
-form.addEventListener('submit', async event => {
+
+
+
+
+searchBTN.addEventListener('click', async event => {
     event.preventDefault();
     window.navigator.serviceWorker.register('./sw.js', {
         scope: __uv$config.prefix
@@ -16,7 +15,7 @@ form.addEventListener('submit', async event => {
         let url = input.value.trim();
         if (!isUrl(url)) url = 'https://www.google.com/search?q=' + url;
         else if (!(url.startsWith('https://') || url.startsWith('http://'))) url = 'http://' + url;
-   var urle = "https://" + document.domain + __uv$config.prefix + __uv$config.encodeUrl(url);
+        var urle = "https://" + document.domain + __uv$config.prefix + __uv$config.encodeUrl(url);
         if (urle) {
             var win; {
                 if (win) { win.focus(); } else {
@@ -36,7 +35,11 @@ form.addEventListener('submit', async event => {
     });
 
 });
-input.addEventListener('submit', async event => {
+
+
+
+
+form.addEventListener('submit', async event => {
     event.preventDefault();
     window.navigator.serviceWorker.register('./sw.js', {
         scope: __uv$config.prefix
