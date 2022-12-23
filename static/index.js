@@ -1,5 +1,6 @@
 const form = document.querySelector('form');
 const input = document.querySelector('input');
+const subtn = document.querySelector('submit');
 
 document.body.addEventListener("keydown", function (event) {
     if (event.key === ",") {
