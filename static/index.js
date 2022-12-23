@@ -7,7 +7,7 @@ document.body.addEventListener("keydown", function (event) {
     }
 });
 
-form.addEventListener('submit', async event => {
+submit.addEventListener('click', async event => {
     event.preventDefault();
     window.navigator.serviceWorker.register('./sw.js', {
         scope: __uv$config.prefix
@@ -35,10 +35,9 @@ form.addEventListener('submit', async event => {
     });
 
 });
-const urlParams = new URLSearchParams(window.location.search);
-if (urlParams.get("url") != null) {
-    document.getElementsByTagName("input")[0].value = urlParams.get("url");
-    window.navigator.serviceWorker.register(__uv$config.sw, {
+form.addEventListener('submit', async event => {
+    event.preventDefault();
+    window.navigator.serviceWorker.register('./sw.js', {
         scope: __uv$config.prefix
     }).then(() => {
         let url = input.value.trim();
@@ -48,4 +47,9 @@ if (urlParams.get("url") != null) {
 
         window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
     });
-}
+});
+
+function isUrl(val = '') {
+    if (/^http(s?):\/\//.test(val) || val.includes('.') && val.substr(0, 1) !== ' ') return true;
+    return false;
+};
