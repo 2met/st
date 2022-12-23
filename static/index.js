@@ -1,6 +1,6 @@
 const form = document.querySelector('form');
-const input = document.querySelector('input');
-const searchBTN = document.querySelector('submit');
+const input = document.querySelector('.form__input');
+const searchBTN = document.querySelector('.submit');
 
 
 
